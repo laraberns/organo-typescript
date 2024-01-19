@@ -6,9 +6,10 @@ interface CampoTextoProps {
     valor: string
     obrigatorio?: boolean
     label: string
+    tipo?: "text" | "password" | "date" | "email" | "number"
 }
 
-const CampoTexto = ({ aoAlterado, label, placeholder, valor, obrigatorio = false }: CampoTextoProps) => {
+const CampoTexto = ({ aoAlterado, label, placeholder, valor, tipo = "text", obrigatorio = false }: CampoTextoProps) => {
 
     const placeholderModificada = `${placeholder}...`
 
@@ -25,7 +26,8 @@ const CampoTexto = ({ aoAlterado, label, placeholder, valor, obrigatorio = false
                 value={valor}
                 onChange={aoDigitado}
                 required={obrigatorio}
-                placeholder={placeholderModificada} />
+                placeholder={placeholderModificada}
+                type={tipo} />
         </div>
     )
 }
